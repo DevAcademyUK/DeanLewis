@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Books - Bookcase</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+<table class="table table-hover text-center">
+    <thead class="thead-dark">
+    <tr>
+        <th class="align-middle" scope="col">#</th>
+        <th class="align-middle" scope="col">Cover</th>
+        <th class="align-middle" scope="col">Book Title</th>
+        <th class="align-middle" scope="col">Author</th>
+        <th class="align-middle" scope="col">Publish Date</th>
+    </tr>
+    </thead>
+    <tbody class="tbody-light">
+    <tr th:each="books :${book}">
+        <td class="align-middle" th:text="${books.getBookID()}"></td>
+        <td class="align-middle" style="max-width: 25%; width: 25%"><img class="img-thumbnail w-25" th:src="${books.getCoverURL()}"/></td>
+        <td>
+            <h5 class="align-middle" th:text="${books.getBookTitle()}"></h5>
+            <p class="align-middle" th:text="${books.getBookBlurb()}"></p>
+        </td>
+        <td class="align-middle" th:text="${books.getBookAuthor()}"></td>
+        <td class="align-middle" th:text="${books.getBookYear()}"></td>
+    </tr>
+    </tbody>
+</table>
+<div class="container text-center">
+    <a class="btn btn-success" href="/">Back To Homepage</a>
+</div>
+</body>
+</html>
+

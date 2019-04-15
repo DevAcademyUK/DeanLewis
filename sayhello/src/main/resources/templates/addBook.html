@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book - Bookcase</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="text-center jumbotron pt-1">
+    <h1 class="pb-2">Add a new book to your collection</h1>
+    <form action="#" th:action="@{/bookAdded}" th:object="${book}" method="post">
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Book ID</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{bookID}" th:value="${book.getBookID()}" readonly/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Book Title</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{bookTitle}" placeholder="Book Title e.g. The BFG"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Book Author</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{bookAuthor}" placeholder="Book Author e.g. Roald Dahl"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Year Published</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{bookYear}" placeholder="Year Published e.g. 1994"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Book Blurb</p>
+        <textarea class="col-md-4 text-center" type="text" th:field="*{bookBlurb}" placeholder="Book Blurb  e.g. Dean had been working hard all summer..."/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Book Cover Image URL</p>
+        <input class="col-md-4 text-center" th:field="*{coverURL}" placeholder="Cover Image URL e.g. http://www.amazon-media.com/..."/>
+        <br/>
+        <input class="btn btn-danger mt-2 mr-2" type="reset" value="Reset"/>
+        <input class="btn btn-primary mt-2 ml-2" type="submit" value="Submit"/>
+    </form>
+</div>
+<div class="text-center">
+    <a class="btn btn-success" href="/">Back to Homepage</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Remove Book - Bookcase</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="text-center jumbotron pt-1">
+    <h1 class="pb-2">Remove this book</h1>
+    <form action="#" th:action="@{/bookDeleted}" th:object="${book}" method="post">
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Book ID</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{bookID}" th:value="${book.bookID}" readonly/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Book Title</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{bookTitle}" th:value="${book.bookTitle}" readonly/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Book Author</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{bookAuthor}" th:value="${book.bookAuthor}" readonly/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Year Published</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{bookYear}" th:value="${book.bookYear}" readonly/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Book Blurb</p>
+        <textarea class="col-md-4 text-center" type="text" th:field="*{bookBlurb}" th:value="${book.bookBlurb}" readonly/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Book Cover Image URL</p>
+        <input class="col-md-4 text-center" th:field="*{coverURL}" th:value="${book.coverURL}" readonly/>
+        <br/>
+        <a class="btn btn-warning mt-2 mr-2" href="/editDeleteBook">Cancel</a>
+        <input class="btn btn-danger mt-2 ml-2" type="submit" value="Remove Book"/>
+    </form>
+</div>
+<div class="text-center">
+    <a class="btn btn-success" href="/">Back to Homepage</a>
+</div>
+</body>
+</html>
